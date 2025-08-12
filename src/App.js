@@ -6,7 +6,7 @@ function App() {
  
   return (
     <div className="App">
-      <input type="tel" autoComplete="tel" inputMode="tel"/>
+      <input id="tel" name="tel" type="tel" autoComplete="tel" inputMode="tel"/>
     </div>
   );
 }
