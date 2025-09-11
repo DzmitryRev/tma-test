@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@salutejs/sdds-serv": "^0.319.0",
-    "@salutejs/sdds-themes": "^0.44.0",
+    "@telegram-apps/sdk-react": "^3.3.7",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",

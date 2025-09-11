@@ -1,10 +1,13 @@
-import logo from "./logo.svg";
+import { retrieveRawInitData } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState } from "react";
 import OtpInput from "react-otp-input";
 
 function App() {
   const [otp, setOtp] = useState("");
+
+  const init = retrieveRawInitData();
+  console.log(init);
 
   return (
     <div className="App">
@@ -23,6 +26,8 @@ function App() {
         renderSeparator={<span>-</span>}
         renderInput={(props) => <input {...props} />}
       />
+
+      {init}
     </div>
   );
 }
