@@ -29,3 +29,7 @@ function App() {
 }
 
 export default App;
+
+
+// text + link => messages in socials or copy value
+// title => title in share modal
