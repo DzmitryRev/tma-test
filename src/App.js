@@ -13,7 +13,6 @@ function App() {
       
       window.location.href = webUrl;
       setStatus("Редирект через location.href");
-    }
   }, []);
 
   useEffect(() => {
