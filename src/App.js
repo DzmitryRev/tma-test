@@ -29,7 +29,7 @@ function App() {
       setStatus(`Ошибка инициализации: ${error}`);
     }
     }
-  }, [isTMA]);,
+  }, [isTMA]);
 
   const checkIsTMA = async () => {
     const isa = await isTMA('complete');
