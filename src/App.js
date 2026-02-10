@@ -9,10 +9,13 @@ function App() {
       console.log(inited);
 
   useEffect(() => {
-      const webUrl = window.location.href;
+      if(inited) {
+        const webUrl = window.location.href;
       window.location.href = webUrl;
       setStatus("Редирект через location.href");
-  }, []);
+      }
+      
+  }, [inited]);
 
   useEffect(() => {
     if (isTMA2) {
