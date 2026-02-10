@@ -1,4 +1,4 @@
-import { isTMA, openLink } from "@telegram-apps/sdk-react";
+import { isTMA, openLink, init } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
