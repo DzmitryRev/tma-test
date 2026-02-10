@@ -37,11 +37,13 @@ function App() {
       const webURL = window.location.href;
 
       const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
+      
+      setTimeout(() => {
+        window.location.href = webUrl;
+      }, 500);
+
       window.open(tgUrl, '_blank');
       
-      // setTimeout(() => {
-        
-      // });
     } else {
       setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
     }
