@@ -1,4 +1,4 @@
-import { isTMA, init, retrieveLaunchParams } from "@telegram-apps/sdk-react";
+import { isTMA, retrieveLaunchParams } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
