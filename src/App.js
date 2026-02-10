@@ -4,15 +4,25 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [status, setStatus] = useState("Проверка...");
+  const [inited, setInited] = useState(false);
 
-  // useEffect(() => {
-  //   try {
-  //     init();
-  //     setStatus("TMA инициализирован");
-  //   } catch (error) {
-  //     setStatus(`Ошибка инициализации: ${error}`);
-  //   }
-  // }, []);
+  useEffect(
+    () => {
+      if(inited) {
+           const webUrl = window.location.href;
+    openLink(webUrl);
+      }
+    }, [inited]
+  )
+
+  useEffect(() => {
+    try {
+      init();
+      setStatus("TMA инициализирован");
+    } catch (error) {
+      setStatus(`Ошибка инициализации: ${error}`);
+    }
+  }, []);
 
   const handleRedirect = () => {
     const webUrl = window.location.href;
