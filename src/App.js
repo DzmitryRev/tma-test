@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
-  const [isTMA, setIsTMA] = useState(false);
+  const [isTMA2, setIsTMA] = useState(false);
 
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function App() {
     }, [inited])
 
   useEffect(() => {
-    if(isTMA) {
+    if(isTMA2) {
     try {
       init();
       setInited(true);
@@ -29,7 +29,7 @@ function App() {
       setStatus(`Ошибка инициализации: ${error}`);
     }
     }
-  }, [isTMA]);
+  }, [isTMA2]);
 
   const checkIsTMA = async () => {
     const isa = await isTMA('complete');
@@ -37,7 +37,7 @@ function App() {
     setIsTMA(isa);
   }
 
-  useEffect(() => {checkIsTMA()}, []);
+  useEffect(() => {checkIsTMA()}, [checkIsTMA]);
 
   return (
     <div className="App">
