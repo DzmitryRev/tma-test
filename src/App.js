@@ -1,42 +1,40 @@
-import { isTMA, init, openLink } from "@telegram-apps/sdk-react";
+import { isTMA, init, retrieveLaunchParams } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
   const [status, setStatus] = useState("Проверка...");
-  const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
-      console.log(inited);
 
   useEffect(() => {
-      if(inited && openLink) {
-        setStatus("Редирект через openLink");
-        const webUrl = window.location.href;
-        openLink(webUrl);
-      }
-      
-  }, [inited]);
+    const checkIsTMA = async () => {
+      const isa = await isTMA('complete');
+      setIsTMA(isa);
+    };
+    
+    checkIsTMA();
+  }, []);
 
   useEffect(() => {
     if (isTMA2) {
+      const webUrl = window.location.href;
+      
       try {
-        init();
-        setInited(true);
-        setStatus("TMA инициализирован");
+        const launchParams = retrieveLaunchParams();
+        
+        if (launchParams.webApp?.openLink) {
+          launchParams.webApp.openLink(webUrl);
+          setStatus("Редирект через retrieveLaunchParams");
+        } else {
+          setStatus("openLink недоступен, редирект через location.href");
+          window.location.href = webUrl;
+        }
       } catch (error) {
-        setStatus(`Ошибка инициализации: ${error}`);
+        setStatus(`Ошибка: ${error}`);
+        window.location.href = webUrl;
       }
     }
   }, [isTMA2]);
-
-  const checkIsTMA = async () => {
-    const isa = await isTMA('complete');
-    setIsTMA(isa);
-  };
-
-  useEffect(() => {
-    checkIsTMA();
-  }, []);
 
   return (
     <div className="App">
