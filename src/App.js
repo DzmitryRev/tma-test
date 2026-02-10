@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function App() {
 
-  const [a, setA] = useState("WE ARE IN TMA");
+  const [a, setA] = useState("WE ARE IN WEB");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
