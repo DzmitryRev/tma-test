@@ -1,4 +1,4 @@
-import { isTMA, init, viewport  } from "@telegram-apps/sdk-react";
+import { isTMA, init, closeMiniApp  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -14,9 +14,8 @@ function App() {
         setStatus("Редирект через openLink");
         setTimeout(() => {
           window.open('https://google.com/', '_blank')
-          console.log(viewport);
-          viewport?.close();
-          console.log( viewport?.close);
+          console.log(closeMiniApp);
+          closeMiniApp();
         })
       }
       
