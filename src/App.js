@@ -13,7 +13,7 @@ function App() {
        if (window.Telegram?.WebApp?.openLink) {
         window.Telegram.WebApp.openLink(webUrl);
         } else {
-        setStatus("openLink не доступен");
+        setStatus("openLink не доступен", `${window.Telegram?.WebApp?.openLink}`);
         }
       }
     }, [inited])
