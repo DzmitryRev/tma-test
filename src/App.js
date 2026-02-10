@@ -1,4 +1,4 @@
-import { isTMA, init, useMiniApp } from "@telegram-apps/sdk-react";
+import { isTMA, init, viewport  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -6,10 +6,9 @@ function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
-  const miniApp = useMiniApp();
   
   const handleClose = () => {
-    miniApp?.close();
+    viewport?.unmount();
   };
       console.log(inited);
 
