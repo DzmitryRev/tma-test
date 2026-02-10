@@ -33,7 +33,15 @@ function App() {
 
     if (a && typeof window !== "undefined") {
       setA("WE ARE IN TMA 22222")
-      window.open("https://google.com/", "_blank");
+
+      const webURL = window.location.href;
+
+      const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
+      window.open(tgUrl, '_blank');
+      
+      // setTimeout(() => {
+        
+      // });
     } else {
       setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
     }
