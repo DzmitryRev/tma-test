@@ -1,4 +1,4 @@
-import {  init } from "@telegram-apps/sdk-react";
+import {  init, openLink } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -10,10 +10,10 @@ function App() {
       if(inited) {
         const webUrl = window.location.href;
         setStatus("INITED, OPENLINK");
-       if (window.Telegram?.WebApp?.openLink) {
-        window.Telegram.WebApp.openLink(webUrl);
+       if (openLink) {
+        openLink(webUrl);
         } else {
-        setStatus("openLink не доступен", `${window.Telegram?.WebApp?.openLink}`);
+        setStatus("openLink не доступен", `${openLink}`);
         }
       }
     }, [inited])
