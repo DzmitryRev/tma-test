@@ -3,9 +3,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
+  const [status, setStatus] = useState("Проверка...");
 
-  const [a, setA] = useState("START");
-  // const [tg, setTg] = useState("");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -24,45 +23,41 @@ function App() {
     }
   };
 
-
   useEffect(() => {
     checkIsTMA();
-  }, [])
+  }, []);
 
   const checkIsTMA = async () => {
-    const a = await isTMA('complete');
+    const inTMA = await isTMA('complete');
 
-    if (a) {
-      setA("WE ARE IN TMA 3")
-      const url = window.location.origin;
-
-      if(window?.Telegram?.WebApp?.openLink) {
-        setA("WE ARE IN TMA openLink")
-        window.Telegram.WebApp.openLink(url);
-      } else if (window?.Telegram?.WebApp?.openTelegramLink) {
-        setA("WE ARE IN TMA openTelegramLink")
-        window.Telegram.WebApp.openTelegramLink(url);
+    if (inTMA) {
+      setStatus("Обнаружено ТМА, перенаправление...");
+      
+      const webUrl = window.location.href; // Сохраняем текущий путь
+      
+      // Пытаемся открыть через методы ТМА
+      if (window?.Telegram?.WebApp?.openLink) {
+        setStatus("Открываем через openLink...");
+        window.Telegram.WebApp.openLink(webUrl);
+        
+        // Закрываем ТМА через таймаут
+        setTimeout(() => {
+          if (window.Telegram?.WebApp?.close) {
+            window.Telegram.WebApp.close();
+          }
+        }, 1000);
+      } 
+      // Fallback на принудительный редирект (самый надёжный)
+      else {
+        setStatus("Принудительный редирект...");
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 500);
       }
-
-      
-      // const webURL = window.location.href;
-
-      // const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
-
-      // setTg(tgUrl);
-      
-      // setTimeout(() => {
-      //   window.location.href = webURL;
-      // }, 500);
-
-      // window.open(tgUrl, '_blank');
-
-      
-      
     } else {
-      setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
+      setStatus("Веб-версия");
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -70,7 +65,7 @@ function App() {
         CLICK TO SHARE
       </button>
 
-      <h3>{a}</h3>
+      <h3>{status}</h3>
     </div>
   );
 }
