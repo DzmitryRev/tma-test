@@ -9,42 +9,42 @@ function App() {
 
     const webUrl = window.location.href;
 
-    // Проверка 1: Есть ли объект Telegram?
-    if (!window?.Telegram) {
-      setStatus("Ошибка: window.Telegram = undefined");
-      return;
-    }
+    // // Проверка 1: Есть ли объект Telegram?
+    // if (!window?.Telegram) {
+    //   setStatus("Ошибка: window.Telegram = undefined");
+    //   return;
+    // }
 
-    if (!window.Telegram.WebApp) {
-      setStatus("Ошибка: window.Telegram.WebApp = undefined");
-      return;
-    }
-    setStatus(" window.Telegram.WebApp существует");
+    // if (!window.Telegram.WebApp) {
+    //   setStatus("Ошибка: window.Telegram.WebApp = undefined");
+    //   return;
+    // }
+    // setStatus(" window.Telegram.WebApp существует");
 
-    if (window.Telegram.WebApp.openLink) {
-      setStatus("Открываем через openLink...");
+    // if (window.Telegram.WebApp.openLink) {
+    //   setStatus("Открываем через openLink...");
       
-      try {
-        window.Telegram.WebApp.openLink(webUrl);
-        setStatus("openLink вызван успешно");
+    //   try {
+    //     window.Telegram.WebApp.openLink(webUrl);
+    //     setStatus("openLink вызван успешно");
         
-        setTimeout(() => {
-          setStatus("Попытка закрыть ТМА...");
+    //     setTimeout(() => {
+    //       setStatus("Попытка закрыть ТМА...");
           
-          if (window.Telegram?.WebApp?.close) {
-            setStatus("WebApp.close существует, вызываем...");
-            window.Telegram.WebApp.close();
-            setStatus("WebApp.close вызван");
-          } else {
-            setStatus("WebApp.close не существует!");
-          }
-        }, 1000);
-      } catch (error) {
-        setStatus(`Ошибка openLink: ${error}`);
-      }
-    } 
-    else {
-      setStatus("Принудительный редирект...");
+    //       if (window.Telegram?.WebApp?.close) {
+    //         setStatus("WebApp.close существует, вызываем...");
+    //         window.Telegram.WebApp.close();
+    //         setStatus("WebApp.close вызван");
+    //       } else {
+    //         setStatus("WebApp.close не существует!");
+    //       }
+    //     }, 1000);
+    //   } catch (error) {
+    //     setStatus(`Ошибка openLink: ${error}`);
+    //   }
+    // } 
+    // else {
+    //   setStatus("Принудительный редирект...");
       
       try {
         window.location.href = webUrl;
@@ -52,7 +52,7 @@ function App() {
       } catch (error) {
         setStatus(`Ошибка редиректа: ${error}`);
       }
-    }
+    // }
       };
   
   const checkIsTMA = async () => {
