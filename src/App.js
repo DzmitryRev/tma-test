@@ -37,7 +37,7 @@ function App() {
     setIsTMA(isa);
   }
 
-  useEffect(() => {checkIsTMA()}, [checkIsTMA]);
+  useEffect(() => {checkIsTMA()}, []);
 
   return (
     <div className="App">
