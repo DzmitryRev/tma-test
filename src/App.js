@@ -32,7 +32,7 @@ function App() {
     const a = await isTMA('complete');
 
     if (a && typeof window !== "undefined") {
-      setA("WE ARE IN TMA")
+      setA("WE ARE IN TMA 22222")
       window.open("https://google.com/", "_blank");
     } else {
       setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
