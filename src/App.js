@@ -6,9 +6,9 @@ function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
+      console.log(inited);
 
   useEffect(() => {
-      console.log(inited);
       const webUrl = "https://google.com/";
       
       window.location.href = webUrl;
