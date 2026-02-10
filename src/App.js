@@ -25,7 +25,7 @@ function App() {
          //  })
 
         setTimeout(() => {
-        window.open("https://google.com", '_blank', 'noopener,noreferrer');
+        window.open(window.location.href, '_blank', 'noopener,noreferrer');
         }, 0)
 
 
