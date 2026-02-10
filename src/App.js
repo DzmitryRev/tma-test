@@ -10,7 +10,9 @@ function App() {
       if(inited) {
         const webUrl = window.location.href;
         setStatus("INITED, OPENLINK");
-        openLink(webUrl);
+        setTimeout(() => {
+          openLink(webUrl);
+        }, 500);
       }
     }, [inited])
 
