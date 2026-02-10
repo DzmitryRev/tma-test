@@ -1,4 +1,4 @@
-import { isTMA, init  } from "@telegram-apps/sdk-react";
+import { isTMA, init, showPopup  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
