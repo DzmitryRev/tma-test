@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inTMA, setInTMA] = useState(false);
-  const [logs, setLogs] = useState<string[]>([]);
+  const [logs, setLogs] = useState([]);
 
-  const addLog = (message: string) => {
+  const addLog = (message) => {
     console.log(`[LOG] ${message}`);
     setLogs(prev => [...prev, message]);
   };
