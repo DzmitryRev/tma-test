@@ -7,17 +7,16 @@ function App() {
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
   
-  const handleClose = () => {
-    viewport?.unmount();
-  };
       console.log(inited);
 
   useEffect(() => {
       if(inited ) {
         setStatus("Редирект через openLink");
         setTimeout(() => {
-          window.open('https://google.com/', '_blank');
-          handleClose();
+          window.open('https://google.com/', '_blank')
+          console.log(viewport);
+          viewport?.unmount();
+          console.log( viewport?.unmount);
         })
       }
       
