@@ -1,4 +1,4 @@
-import { isTMA, init  } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -28,6 +28,7 @@ function App() {
 
           setTimeout(() => {
               window.open("https://tma-test-lake.vercel.app/", "_blank"); 
+              openLink("https://tma-test-lake.vercel.app/");
               // closeMiniApp();
             }, 500)
       }
