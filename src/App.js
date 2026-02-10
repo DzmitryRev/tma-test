@@ -26,7 +26,7 @@ function App() {
 
          try {
              setTimeout(() => {
-        window.top.location.href = 'https://google.com';
+        window.top.open('https://google.com', '_blank');
       }, 100);
         //     const link = document.createElement('a');
         // link.href = 'https://google.com';
