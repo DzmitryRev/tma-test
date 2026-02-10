@@ -15,8 +15,8 @@ function App() {
         setTimeout(() => {
           window.open('https://google.com/', '_blank')
           console.log(viewport);
-          viewport?.unmount();
-          console.log( viewport?.unmount);
+          viewport?.close();
+          console.log( viewport?.close);
         })
       }
       
