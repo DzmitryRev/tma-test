@@ -1,4 +1,4 @@
-import { isTMA, init, showPopup, openLink  } from "@telegram-apps/sdk-react";
+import { isTMA, init, showPopup  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -20,7 +20,7 @@ function App() {
           setStatus(res); 
           if(res === "1") {
             setTimeout(() => {
-              openLink("https://google.com/"); 
+              window.open("https://google.com/", "_blank"); 
               // closeMiniApp();
             }, 500)
           }
