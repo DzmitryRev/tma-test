@@ -12,8 +12,14 @@ function App() {
   useEffect(() => {
       if(inited ) {
         setStatus("Редирект через openLink");
+         openLink('https://google.com/', {
+            tryInstantView: true
+          })
         setTimeout(() => {
           openLink('https://google.com/', {
+            tryInstantView: true
+          })
+           openLink('https://google.com/', {
             tryInstantView: true
           })
           console.log(closeMiniApp);
