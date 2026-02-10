@@ -16,6 +16,8 @@ function App() {
 
   const handleRedirect = () => {
     const webUrl = window.location.href;
+
+    setStatus(`${openLink}`);
     openLink(webUrl);
 //     if(window?.Telegram?.WebApp?.openLink) {
 //        setStatus("openLink");
