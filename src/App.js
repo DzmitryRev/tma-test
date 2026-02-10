@@ -16,7 +16,13 @@ function App() {
           message: "Custom message",
           buttons: [{text: "Перейти", id: "1", type: "default"}, {text: "Перейти", id: "2", type: "default"}],
           title: "Custom title",
-        }).then(res => {setStatus(res); openLink("https://google.com/"); closeMiniApp();});
+        }).then(res => {
+          setTimeout(() => {
+            setStatus(res); 
+            openLink("https://google.com/"); 
+            closeMiniApp();
+          })
+        });
       }
       
   }, [inited]);
