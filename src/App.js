@@ -1,4 +1,4 @@
-import { isTMA, init, openLink, showPopup  } from "@telegram-apps/sdk-react";
+import { isTMA, init  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -12,26 +12,19 @@ function App() {
   useEffect(() => {
       if(inited ) {
         setStatus("Редирект через openLink");
-        showPopup({
-          message: "Custom message",
-          buttons: [{text: "Перейти", id: "1", type: "ok"}],
-          title: "Custom title",
-          postEvent: () => {
-               openLink('https://google.com/')
-          }
-        });
+        // showPopup({
+        //   message: "Custom message",
+        //   buttons: [{text: "Перейти", id: "1", type: "ok"}],
+        //   title: "Custom title",
+        //   postEvent: () => {
+        //        openLink('https://google.com/')
+        //   }
+        // });
          // openLink('https://google.com/', {
          //    tryInstantView: true
          //  })
-        // setTimeout(() => {
-        //   openLink('https://google.com/', {
-        //     tryInstantView: true
-        //   })
-        //    openLink('https://google.com/', {
-        //     tryInstantView: true
-        //   })
-        //   console.log(closeMiniApp);
-        // })
+
+        window.open('https://google.com', 'popupWindow', 'width=400,height=400')
 
         // setTimeout(() => {
         //   closeMiniApp();
