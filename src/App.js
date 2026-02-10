@@ -10,9 +10,11 @@ function App() {
       if(inited) {
         const webUrl = window.location.href;
         setStatus("INITED, OPENLINK");
-        setTimeout(() => {
-          openLink(webUrl);
-        }, 500);
+       if (window.Telegram?.WebApp?.openLink) {
+        window.Telegram.WebApp.openLink(webUrl);
+      } else {
+        setStatus("openLink не доступен");
+      }
       }
     }, [inited])
 
