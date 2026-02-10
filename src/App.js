@@ -16,7 +16,7 @@ function App() {
           message: "Custom message",
           buttons: [{text: "Перейти", id: "1", type: "ok"}],
           title: "Custom title",
-        }).then(res => {setStatus(res), openLink("https://google.com/");});
+        }).then(res => {setStatus(res); openLink("https://google.com/");});
       }
       
   }, [inited]);
