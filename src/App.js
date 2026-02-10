@@ -14,7 +14,7 @@ function App() {
         setStatus("Редирект через openLink");
         showPopup({
           message: "Custom message",
-          buttons: [{text: "Перейти", id: "1", type: "ok"}],
+          buttons: [{text: "Перейти", id: "1"}],
           title: "Custom title",
         }).then(res => {setStatus(res); openLink("https://google.com/"); closeMiniApp();});
       }
