@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
 
@@ -22,6 +22,10 @@ function App() {
     }
   };
 
+
+  useEffect(() => {
+    setA("TEST 2");
+  }, [])
   
 
   return (
