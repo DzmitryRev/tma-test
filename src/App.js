@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
       if(inited) {
-        setStatus(`INITED, OPENLINK ${webUrl}`);
+        setStatus(`INITED, OPENLINK`);
        if (openLink) {
         openLink("https://google.com/");
         } else {
