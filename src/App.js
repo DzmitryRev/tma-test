@@ -25,13 +25,16 @@ function App() {
          //  })
 
          try {
-            const link = document.createElement('a');
-        link.href = 'https://google.com';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+             setTimeout(() => {
+        window.top.location.href = 'https://google.com';
+      }, 100);
+        //     const link = document.createElement('a');
+        // link.href = 'https://google.com';
+        // link.target = '_blank';
+        // link.rel = 'noopener noreferrer';
+        // document.body.appendChild(link);
+        // link.click();
+        // document.body.removeChild(link);
          } catch {
            setStatus("CATCH")
          }
