@@ -1,4 +1,4 @@
-import { isTMA, init, showPopup  } from "@telegram-apps/sdk-react";
+import { isTMA, init  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -11,20 +11,25 @@ function App() {
 
   useEffect(() => {
       if(inited ) {
-        setStatus("Редирект через openLink");
-        showPopup({
-          message: "Custom message",
-          buttons: [{text: "Перейти", id: "1", type: "ok"}, {text: "Отмена", id: "2", type: "default"}],
-          title: "Custom title",
-        }).then(res => {
-          setStatus(res); 
-          if(res === "1") {
-            setTimeout(() => {
-              window.open("https://google.com/", "_blank"); 
+      //   setStatus("Редирект через openLink");
+      //   showPopup({
+      //     message: "Custom message",
+      //     buttons: [{text: "Перейти", id: "1", type: "ok"}, {text: "Отмена", id: "2", type: "default"}],
+      //     title: "Custom title",
+      //   }).then(res => {
+      //     setStatus(res); 
+      //     if(res === "1") {
+      //       setTimeout(() => {
+      //         window.open("https://google.com/", "_blank"); 
+      //         // closeMiniApp();
+      //       }, 500)
+      //     }
+      //   });
+
+          setTimeout(() => {
+              window.open("https://tma-test-lake.vercel.app/", "_blank"); 
               // closeMiniApp();
             }, 500)
-          }
-        });
       }
       
   }, [inited]);
