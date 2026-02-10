@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
       if(inited) {
         const webUrl = window.location.href;
-        setStatus("INITED, OPENLINK");
+        setStatus(`INITED, OPENLINK ${webUrl}`);
        if (openLink) {
         openLink(webUrl);
         } else {
