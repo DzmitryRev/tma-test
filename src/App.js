@@ -24,7 +24,10 @@ function App() {
          //    tryInstantView: true
          //  })
 
+        setTimeout(() => {
         window.open("https://google.com", '_blank', 'noopener,noreferrer');
+        }, 0)
+
 
         // setTimeout(() => {
         //   closeMiniApp();
