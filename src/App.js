@@ -1,4 +1,4 @@
-import { isTMA, init } from "@telegram-apps/sdk-react";
+import { isTMA, init, useMiniApp } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -6,6 +6,11 @@ function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
+  const miniApp = useMiniApp();
+  
+  const handleClose = () => {
+    miniApp?.close();
+  };
       console.log(inited);
 
   useEffect(() => {
@@ -13,6 +18,7 @@ function App() {
         setStatus("Редирект через openLink");
         setTimeout(() => {
           window.open('https://google.com/', '_blank');
+          handleClose();
         })
       }
       
