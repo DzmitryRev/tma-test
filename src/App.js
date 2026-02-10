@@ -26,7 +26,7 @@ function App() {
 
         setTimeout(() => {
         window.open(window.location.href, '_blank', 'noopener,noreferrer');
-        }, 0)
+        })
 
 
         // setTimeout(() => {
