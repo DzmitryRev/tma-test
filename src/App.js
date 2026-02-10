@@ -12,7 +12,7 @@ function App() {
        if (openLink) {
         openLink("https://google.com/");
         } else {
-        setStatus(`openLink не достsdsdfsdfsdfsdfупен ${openLink}`);
+        setStatus(`openLink не достsdsdfsdfsdfsdfупен`);
         }
       }
     }, [inited])
