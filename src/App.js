@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function App() {
 
-  const [a, setA] = useState("WE ARE IN WEB");
+  const [a, setA] = useState("START");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -33,7 +33,9 @@ function App() {
 
     if (a && typeof window !== "undefined") {
       setA("WE ARE IN TMA")
-      window.open("https://google.com/");
+      window.open("https://google.com/", "_blank");
+    } else {
+      setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
     }
   }
 
