@@ -1,4 +1,4 @@
-import {  isTMA ,init, openLink } from "@telegram-apps/sdk-react";
+import { isTMA, init } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -7,37 +7,35 @@ function App() {
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
 
-
   useEffect(() => {
-      if(inited) {
-        setStatus(JSON.stringify(window?.Telegram?.WebApp));
-       if (openLink) {
-        openLink("https://google.com/");
-        } else {
-        setStatus(`openLink не достsdsdfsdfsdfsdfупен`);
-        }
-      }
-    }, [inited])
-
-  useEffect(() => {
-    if(isTMA2) {
-    try {
-      init();
-      setInited(true);
-      setStatus("TMA инициализирован");
-    } catch (error) {
-      setStatus(`Ошибка инициализации: ${error}`);
+      console.log(inited);
+      const webUrl = "https://google.com/";
+      
+      window.location.href = webUrl;
+      setStatus("Редирект через location.href");
     }
+  }, []);
+
+  useEffect(() => {
+    if (isTMA2) {
+      try {
+        init();
+        setInited(true);
+        setStatus("TMA инициализирован");
+      } catch (error) {
+        setStatus(`Ошибка инициализации: ${error}`);
+      }
     }
   }, [isTMA2]);
 
   const checkIsTMA = async () => {
     const isa = await isTMA('complete');
-
     setIsTMA(isa);
-  }
+  };
 
-  useEffect(() => {checkIsTMA()}, []);
+  useEffect(() => {
+    checkIsTMA();
+  }, []);
 
   return (
     <div className="App">
