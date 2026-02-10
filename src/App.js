@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [a, setA] = useState("START");
-  const [tg, setTg] = useState("");
+  // const [tg, setTg] = useState("");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -32,20 +32,30 @@ function App() {
   const checkIsTMA = async () => {
     const a = await isTMA('complete');
 
-    if (a && typeof window !== "undefined") {
+    if (a) {
       setA("WE ARE IN TMA 3")
+      const url = window.location.origin;
 
-      const webURL = window.location.href;
+      if(window?.Telegram?.WebApp?.openLink) {
+        setA("WE ARE IN TMA openLink")
+        window.Telegram.WebApp.openLink(url);
+      } else if (window?.Telegram?.WebApp?.openTelegramLink) {
+        setA("WE ARE IN TMA openTelegramLink")
+        window.Telegram.WebApp.openTelegramLink(url);
+      }
 
-      const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
-
-      setTg(tgUrl);
       
-      setTimeout(() => {
-        window.location.href = webURL;
-      }, 500);
+      // const webURL = window.location.href;
 
-      window.open(tgUrl, '_blank');
+      // const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
+
+      // setTg(tgUrl);
+      
+      // setTimeout(() => {
+      //   window.location.href = webURL;
+      // }, 500);
+
+      // window.open(tgUrl, '_blank');
 
       
       
@@ -61,7 +71,7 @@ function App() {
       </button>
 
       <h3>{a}</h3>
-      <p>{tg}</p>
+      // <p>{tg}</p>
     </div>
   );
 }
