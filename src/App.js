@@ -13,7 +13,8 @@ function App() {
       if(inited ) {
         setStatus("Редирект через openLink");
         showPopup({
-          message: "POPUP"
+          message: "POPUP",
+          buttons: [{text: "Перейти", id: "1", type: "ok"}]
         });
          // openLink('https://google.com/', {
          //    tryInstantView: true
