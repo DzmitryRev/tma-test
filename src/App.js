@@ -1,4 +1,4 @@
-import { isTMA, init, closeMiniApp, openTelegramLink  } from "@telegram-apps/sdk-react";
+import { isTMA, init, closeMiniApp, openLink  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -13,7 +13,9 @@ function App() {
       if(inited ) {
         setStatus("Редирект через openLink");
         setTimeout(() => {
-          openTelegramLink('https://google.com/')
+          openLink('https://google.com/', {
+            tryInstantView: true
+          })
           console.log(closeMiniApp);
         })
 
