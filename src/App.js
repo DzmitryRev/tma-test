@@ -11,8 +11,10 @@ function App() {
   useEffect(() => {
       if(inited && openLink) {
         setStatus("Редирект через openLink");
-        const webUrl = window.location.href;
-        openLink(webUrl);
+        openLink('https://telegram.org', {
+          tryBrowser: 'chrome',
+          tryInstantView: true,
+        });
       }
       
   }, [inited]);
