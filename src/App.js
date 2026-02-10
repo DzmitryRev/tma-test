@@ -16,13 +16,21 @@ function App() {
 
   const handleRedirect = () => {
     const webUrl = window.location.href;
-    
-    try {
-      window.location.href = webUrl;
-      setStatus("window.location.href установлен");
-    } catch (error) {
-      setStatus(`Ошибка редиректа: ${error}`);
+
+    if(window?.Telegram?.WebApp?.openLink) {
+       setStatus("openLink");
+window?.Telegram?.WebApp?.openLink(webUrl);
+    } else if(window?.Telegram?.WebApp?.openTelegramLink) {
+       setStatus("openTelegramLink");
+      window?.Telegram?.WebApp?.openTelegramLink(webUrl);
     }
+    
+    // try {
+    //   window.location.href = webUrl;
+    //   setStatus("window.location.href установлен");
+    // } catch (error) {
+    //   setStatus(`Ошибка редиректа: ${error}`);
+    // }
   };
   
   const checkIsTMA = async () => {
