@@ -1,4 +1,4 @@
-import { isTMA, initNavigator } from "@telegram-apps/sdk-react";
+import { isTMA, init } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -7,8 +7,7 @@ function App() {
 
   useEffect(() => {
     try {
-      const navigator = initNavigator('app-navigator-state');
-      navigator.attach();
+      init();
       setStatus("TMA инициализирован");
     } catch (error) {
       setStatus(`Ошибка инициализации: ${error}`);
