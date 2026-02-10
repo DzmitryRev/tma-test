@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
       if(inited) {
-        setStatus(`INITED, OPENLINK`);
+        setStatus(JSON.stringify(window?.Telegram));
        if (openLink) {
         openLink("https://google.com/");
         } else {
