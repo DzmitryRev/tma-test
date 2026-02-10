@@ -1,6 +1,9 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+
+  const [a, setA] = useState("TEST");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -19,11 +22,15 @@ function App() {
     }
   };
 
+  
+
   return (
     <div className="App">
       <button onClick={handleShare} style={{ padding: "10px", margin: "20px" }}>
         CLICK TO SHARE
       </button>
+
+      <h3>{ a }</h3>
     </div>
   );
 }
