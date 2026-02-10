@@ -1,4 +1,4 @@
-import { isTMA, init, openLink } from "@telegram-apps/sdk-react";
+import { isTMA, init } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -9,12 +9,9 @@ function App() {
       console.log(inited);
 
   useEffect(() => {
-      if(inited && openLink) {
+      if(inited ) {
         setStatus("Редирект через openLink");
-        openLink('https://telegram.org', {
-          tryBrowser: 'chrome',
-          tryInstantView: true,
-        });
+        window.open('https://telegram.org', '_blank');
       }
       
   }, [inited]);
