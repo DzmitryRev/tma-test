@@ -39,7 +39,7 @@ function App() {
       const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
       
       setTimeout(() => {
-        window.location.href = webUrl;
+        window.location.href = webURL;
       }, 500);
 
       window.open(tgUrl, '_blank');
