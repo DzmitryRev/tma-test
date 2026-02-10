@@ -8,10 +8,9 @@ function App() {
 
   useEffect(() => {
       if(inited) {
-        const webUrl = window.location.href;
         setStatus(`INITED, OPENLINK ${webUrl}`);
        if (openLink) {
-        openLink(webUrl);
+        openLink("https://google.com/");
         } else {
         setStatus(`openLink не достsdsdfsdfsdfsdfупен ${openLink}`);
         }
