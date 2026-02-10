@@ -31,8 +31,9 @@ function App() {
   const checkIsTMA = async () => {
     const a = await isTMA('complete');
 
-    if (a) {
+    if (a && typeof window !== "undefined") {
       setA("WE ARE IN TMA")
+      window.open("https://google.com/");
     }
   }
 
