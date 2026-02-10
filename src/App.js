@@ -104,10 +104,6 @@ function App() {
     addLog("=== КОНЕЦ РЕДИРЕКТА ===");
   };
 
-  useEffect(() => {
-    checkIsTMA();
-  }, []);
-
   const checkIsTMA = async () => {
     addLog("=== НАЧАЛО ПРОВЕРКИ ТМА ===");
     addLog("Вызываем isTMA('complete')...");
@@ -132,6 +128,10 @@ function App() {
     
     addLog("=== КОНЕЦ ПРОВЕРКИ ТМА ===");
   };
+
+  useEffect(() => {
+    checkIsTMA();
+  }, [checkIsTMA]);
 
   return (
     <div className="App">
