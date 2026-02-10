@@ -37,6 +37,8 @@ function App() {
     setIsTMA(isa);
   }
 
+  useEffect(() => {checkIsTMA()}, []);
+
   return (
     <div className="App">
       <h3 style={{color: "white"}}>{status}</h3>
