@@ -1,10 +1,12 @@
-import {  init, openLink } from "@telegram-apps/sdk-react";
+import {  isTMA ,init, openLink } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
+  const [isTMA, setIsTMA] = useState(false);
+
 
   useEffect(() => {
       if(inited) {
@@ -18,6 +20,7 @@ function App() {
     }, [inited])
 
   useEffect(() => {
+    if(isTMA) {
     try {
       init();
       setInited(true);
@@ -25,7 +28,14 @@ function App() {
     } catch (error) {
       setStatus(`Ошибка инициализации: ${error}`);
     }
-  }, []);
+    }
+  }, [isTMA]);,
+
+  const checkIsTMA = async () => {
+    const isa = await isTMA('complete');
+
+    setIsTMA(isa);
+  }
 
   return (
     <div className="App">
