@@ -1,9 +1,10 @@
+import { isTMA } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
 
-  const [a, setA] = useState("TEST");
+  const [a, setA] = useState("WE ARE IN TMA");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -26,7 +27,14 @@ function App() {
   useEffect(() => {
     setA("TEST 2");
   }, [])
-  
+
+  const checkIsTMA = async () => {
+    const a = await isTMA('complete');
+
+    if (a) {
+      setA("WE ARE IN TMA")
+    }
+  }
 
   return (
     <div className="App">
@@ -34,13 +42,9 @@ function App() {
         CLICK TO SHARE
       </button>
 
-      <h3>{ a }</h3>
+      <h3>{a}</h3>
     </div>
   );
 }
 
 export default App;
-
-
-// text + link => messages in socials or copy value
-// title => title in share modal
