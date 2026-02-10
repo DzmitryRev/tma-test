@@ -9,8 +9,7 @@ function App() {
       console.log(inited);
 
   useEffect(() => {
-      const webUrl = "https://google.com/";
-      
+      const webUrl = window.location.href;
       window.location.href = webUrl;
       setStatus("Редирект через location.href");
   }, []);
