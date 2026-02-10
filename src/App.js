@@ -16,6 +16,7 @@ function App() {
   useEffect(() => {
     try {
       init();
+      setInited(true);
       setStatus("TMA инициализирован");
     } catch (error) {
       setStatus(`Ошибка инициализации: ${error}`);
