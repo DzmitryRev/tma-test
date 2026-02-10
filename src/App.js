@@ -1,4 +1,4 @@
-import { isTMA, init } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -16,14 +16,14 @@ function App() {
 
   const handleRedirect = () => {
     const webUrl = window.location.href;
-
-    if(window?.Telegram?.WebApp?.openLink) {
-       setStatus("openLink");
-window?.Telegram?.WebApp?.openLink(webUrl);
-    } else if(window?.Telegram?.WebApp?.openTelegramLink) {
-       setStatus("openTelegramLink");
-      window?.Telegram?.WebApp?.openTelegramLink(webUrl);
-    }
+    openLink(webUrl);
+//     if(window?.Telegram?.WebApp?.openLink) {
+//        setStatus("openLink");
+// window?.Telegram?.WebApp?.openLink(webUrl);
+//     } else if(window?.Telegram?.WebApp?.openTelegramLink) {
+//        setStatus("openTelegramLink");
+//       window?.Telegram?.WebApp?.openTelegramLink(webUrl);
+//     }
     
     // try {
     //   window.location.href = webUrl;
