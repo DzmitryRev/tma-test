@@ -14,14 +14,16 @@ function App() {
         setStatus("Редирект через openLink");
         showPopup({
           message: "Custom message",
-          buttons: [{text: "Перейти", id: "1", type: "default"}, {text: "Перейти", id: "2", type: "default"}],
+          buttons: [{text: "Перейти", id: "1", type: "ok"}, {text: "Отмена", id: "2", type: "default"}],
           title: "Custom title",
         }).then(res => {
-          setTimeout(() => {
-            setStatus(res); 
-            openLink("https://google.com/"); 
-            // closeMiniApp();
-          })
+          setStatus(res); 
+          if(res === "1") {
+            setTimeout(() => {
+              openLink("https://google.com/"); 
+              // closeMiniApp();
+            }, 500)
+          }
         });
       }
       
