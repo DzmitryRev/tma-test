@@ -11,7 +11,9 @@ function App() {
   useEffect(() => {
       if(inited ) {
         setStatus("Редирект через openLink");
-        window.open('https://telegram.org', '_blank');
+        setTimeout(() => {
+          window.open('https://google.com/', '_blank');
+        })
       }
       
   }, [inited]);
