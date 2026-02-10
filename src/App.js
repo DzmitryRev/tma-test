@@ -13,7 +13,7 @@ function App() {
        if (openLink) {
         openLink(webUrl);
         } else {
-        setStatus("openLink не доступен", `${openLink}`);
+        setStatus(`openLink не достsdsdfsdfsdfsdfупен ${openLink}`);
         }
       }
     }, [inited])
