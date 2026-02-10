@@ -1,4 +1,4 @@
-import { isTMA, init  } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -25,16 +25,21 @@ function App() {
          //  })
 
          try {
-             setTimeout(() => {
-        window.top.open('https://google.com', '_blank');
-      }, 100);
-        //     const link = document.createElement('a');
-        // link.href = 'https://google.com';
-        // link.target = '_blank';
-        // link.rel = 'noopener noreferrer';
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
+      //        setTimeout(() => {
+      //   window.top.open('https://google.com', '_blank');
+      // }, 100);
+        const link = document.createElement('div');
+        link.addEventListener('click', () => {
+          openLink('https://google.com');
+        })
+        document.body.appendChild(link);
+
+
+           setTimeout(() => {
+
+             link.click();
+        document.body.removeChild(link);
+           })
          } catch {
            setStatus("CATCH")
          }
