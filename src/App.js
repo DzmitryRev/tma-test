@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [a, setA] = useState("START");
+  const [tg, setTg] = useState("");
   const handleShare = async () => {
     const shareData = {
       title: "My Page",
@@ -37,12 +38,16 @@ function App() {
       const webURL = window.location.href;
 
       const tgUrl = `tg://resolve?domain=${new URL(webURL).hostname}`;
+
+      setTg(tgUrl);
       
       setTimeout(() => {
         window.location.href = webURL;
       }, 500);
 
       window.open(tgUrl, '_blank');
+
+      
       
     } else {
       setA("WE ARE IN WEB OR WINDOW === UNDEFINED");
@@ -56,6 +61,7 @@ function App() {
       </button>
 
       <h3>{a}</h3>
+      <p>{tg}</p>
     </div>
   );
 }
