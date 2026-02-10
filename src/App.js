@@ -25,7 +25,7 @@ function App() {
 
 
   useEffect(() => {
-    setA("TEST 2");
+    checkIsTMA();
   }, [])
 
   const checkIsTMA = async () => {
