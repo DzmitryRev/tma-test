@@ -1,4 +1,4 @@
-import { isTMA, init, showPopup  } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink, showPopup  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -13,8 +13,12 @@ function App() {
       if(inited ) {
         setStatus("Редирект через openLink");
         showPopup({
-          message: "POPUP",
-          buttons: [{text: "Перейти", id: "1", type: "ok"}]
+          message: "Custom message",
+          buttons: [{text: "Перейти", id: "1", type: "ok"}],
+          title: "Custom title",
+          postEvent: () => {
+               openLink('https://google.com/')
+          }
         });
          // openLink('https://google.com/', {
          //    tryInstantView: true
