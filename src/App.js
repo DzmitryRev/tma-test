@@ -32,7 +32,7 @@ function App() {
     const a = await isTMA('complete');
 
     if (a && typeof window !== "undefined") {
-      setA("WE ARE IN TMA 22222")
+      setA("WE ARE IN TMA 3")
 
       const webURL = window.location.href;
 
