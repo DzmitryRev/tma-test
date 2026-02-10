@@ -1,4 +1,4 @@
-import { isTMA, init } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -9,10 +9,10 @@ function App() {
       console.log(inited);
 
   useEffect(() => {
-      if(inited) {
+      if(inited && openLink) {
+        setStatus("Редирект через openLink");
         const webUrl = window.location.href;
-      window.location.href = webUrl;
-      setStatus("Редирект через location.href");
+        openLink(webUrl);
       }
       
   }, [inited]);
