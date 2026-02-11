@@ -1,4 +1,4 @@
-import { isTMA, init, showPopup  } from "@telegram-apps/sdk-react";
+import { isTMA, init, showPopup, closeMiniApp  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -20,6 +20,10 @@ function App() {
       const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
         try {
           window.open(linkUrl);
+          openLink(linkUrl);
+          setTimeout(() => {
+            closeMiniApp()
+          }, 1000)
         } catch (e) {
           setStatus(`${e}`)
         }
