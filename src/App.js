@@ -12,8 +12,6 @@ function App() {
   
 
   const processPopup = async () => {
-    
-
     const buttonId = await showPopup({
           message: "Custom message",
           buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "destructive"}],
