@@ -11,26 +11,18 @@ function App() {
 
   useEffect(() => {
       if(inited ) {
-      //   setStatus("Редирект через openLink");
-      //   showPopup({
-      //     message: "Custom message",
-      //     buttons: [{text: "Перейти", id: "1", type: "ok"}, {text: "Отмена", id: "2", type: "default"}],
-      //     title: "Custom title",
-      //   }).then(res => {
-      //     setStatus(res); 
-      //     if(res === "1") {
-      //       setTimeout(() => {
-      //         window.open("https://google.com/", "_blank"); 
-      //         // closeMiniApp();
-      //       }, 500)
-      //     }
-      //   });
-
-          setTimeout(() => {
-              window.open("https://tma-test-lake.vercel.app/", "_blank"); 
-              openLink("https://tma-test-lake.vercel.app/");
-              // closeMiniApp();
-            }, 500)
+        setStatus("Редирект через openLink");
+        showPopup({
+          message: "Custom message",
+          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "default"}],
+          title: "Custom title",
+        }).then(res => {
+          setStatus(res); 
+          if(res === "ok") {
+              window.open("https://google.com/", "_blank"); 
+            }
+          }
+        });
       }
       
   }, [inited]);
