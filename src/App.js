@@ -18,7 +18,11 @@ function App() {
         })
     if(buttonId === "ok") {
       const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
-        openLink(linkUrl, {tryInstantView: true});
+        try {
+          openLink(linkUrl, {tryInstantView: true});
+        } catch (e) {
+          setStatus(`${e}`)
+        }
     }
   }
 
