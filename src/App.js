@@ -1,4 +1,4 @@
-import { isTMA, init, openLink  } from "@telegram-apps/sdk-react";
+import { isTMA, init, openLink, showPopup  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -7,22 +7,25 @@ function App() {
   const [inited, setInited] = useState(false);
   const [isTMA2, setIsTMA] = useState(false);
   
-      console.log(inited);
+  console.log(inited);
+
+  const processPopup = async () => {
+
+    const buttonId = await showPopup({
+          message: "Custom message",
+          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "cancel"}],
+          title: "Custom title",
+        })
+    if(buttonId === "ok") {
+      const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
+      openLink(linkUrl);
+    }
+  }
 
   useEffect(() => {
       if(inited ) {
         setStatus("Редирект через openLink");
-        showPopup({
-          message: "Custom message",
-          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "default"}],
-          title: "Custom title",
-        }).then(res => {
-          setStatus(res); 
-          if(res === "ok") {
-              window.open("https://google.com/", "_blank"); 
-            }
-          }
-        });
+        processPopup();
       }
       
   }, [inited]);
