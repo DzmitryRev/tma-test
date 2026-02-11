@@ -26,7 +26,8 @@ export const redirectFromTMA = async () => {
   try {
     if (initData && typeof window !== 'undefined') {
       const clickedButtonId = await showPopup(popupOptions);
-
+      const el = document.querySelector(".App");
+      el.innerText = clickedButtonId;
       if (clickedButtonId === 'yes') {
         const redirectHref = window.location.origin  +  window.location.pathname
 
@@ -52,7 +53,7 @@ function App() {
   }, [])
   
   return (
-    <div className="App">
+    <div className="App" style={{color: "red"}}>
     </div>
   );
 }
