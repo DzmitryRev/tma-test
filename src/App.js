@@ -13,7 +13,7 @@ function App() {
 
     const buttonId = await showPopup({
           message: "Custom message",
-          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "cancel"}],
+          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "destructive"}],
           title: "Custom title",
         })
     if(buttonId === "ok") {
