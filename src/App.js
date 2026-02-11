@@ -11,6 +11,7 @@ function App() {
   
 
   const processPopup = async () => {
+    
 
     const buttonId = await showPopup({
           message: "Custom message",
