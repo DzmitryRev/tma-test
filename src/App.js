@@ -1,6 +1,7 @@
 import "./App.css";
 import {  useEffect } from "react";
 import {
+  init,
   ShowPopupOptions,
   closeMiniApp,
   initData,
