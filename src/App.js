@@ -18,7 +18,9 @@ function App() {
         })
     if(buttonId === "ok") {
       const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
-      openLink(linkUrl);
+      setTimeout(() => {
+        openLink(linkUrl);
+      });
     }
   }
 
