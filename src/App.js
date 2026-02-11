@@ -8,6 +8,7 @@ function App() {
   const [isTMA2, setIsTMA] = useState(false);
   
   console.log(inited);
+  
 
   const processPopup = async () => {
 
