@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <h3 style={{color: "white"}}>{status}</h3>
+      <h3 style={{color: "red"}}>{status}</h3>
     </div>
   );
 }
