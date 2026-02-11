@@ -28,7 +28,7 @@ export const redirectFromTMA = async () => {
       const clickedButtonId = await showPopup(popupOptions);
 
       if (clickedButtonId === 'yes') {
-        const redirectHref = window.location.href;
+        const redirectHref = window.location.origin  +  window.location.pathname
 
         openLink(redirectHref); // Ignored on IOS
         window.open(redirectHref); // Ignored on Androind, Web, Desktop
