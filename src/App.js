@@ -42,11 +42,8 @@ export const redirectFromTMA = async () => {
     }
   } catch {
     console.warn('Не удалось сделать редирект в веб версию');
-    const el = document.querySelector(".App");
-    el.innerText = "CATCH";
   } finally {
-    const el = document.querySelector(".App");
-    el.innerText = "FINALLY";
+    closeMiniApp();
   }
 };
 
