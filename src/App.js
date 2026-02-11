@@ -2,7 +2,6 @@ import { isTMA, init, openLink, showPopup  } from "@telegram-apps/sdk-react";
 import "./App.css";
 import { useState, useEffect } from "react";
 
-
 function App() {
   const [status, setStatus] = useState("Проверка...");
   const [inited, setInited] = useState(false);
