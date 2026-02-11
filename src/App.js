@@ -26,8 +26,7 @@ export const redirectFromTMA = async () => {
   try {
     if (initData && typeof window !== 'undefined') {
       const clickedButtonId = await showPopup(popupOptions);
-      const el = document.querySelector(".App");
-      el.innerText = clickedButtonId;
+   
       if (clickedButtonId === 'yes') {
         const redirectHref = window.location.origin  +  window.location.pathname
 
@@ -43,6 +42,11 @@ export const redirectFromTMA = async () => {
     }
   } catch {
     console.warn('Не удалось сделать редирект в веб версию');
+    const el = document.querySelector(".App");
+    el.innerText = "CATCH;
+  } finally {
+    const el = document.querySelector(".App");
+    el.innerText = "FINALLY;
   }
 };
 
