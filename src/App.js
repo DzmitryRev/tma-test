@@ -12,9 +12,9 @@ function App() {
 
   const processPopup = async () => {
     const buttonId = await showPopup({
-          message: "Custom message",
-          buttons: [{text: "Перейти", id: "ok", type: "ok"}, {text: "Отмена", id: "cancel", type: "destructive"}],
-          title: "Custom title",
+          message: "Хотите перейти в веб версию?",
+          buttons: [{text: "Перейти", id: "ok", type: "default"}, {text: "Закрыть", id: "cancel", type: "default"}],
+          title: "ТМА больше не работает",
         })
     if(buttonId === "ok") {
       const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
@@ -27,6 +27,8 @@ function App() {
         } catch (e) {
           setStatus(`${e}`)
         }
+    } else if(buttonId === "cancel") {
+                  closeMiniApp()
     }
   }
 
