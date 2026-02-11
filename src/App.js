@@ -10,13 +10,13 @@ import {
 } from '@telegram-apps/sdk-react';
 
 const popupOptions: ShowPopupOptions = {
-  title: 'telegram mini app больше не поддерживается',
+  title: 'Telegram mini-app «Сообщества Сбера» больше не поддерживается',
   message: 'Хотите перейти в веб-версию приложения?',
   buttons: [
     { id: 'yes', text: 'Перейти', type: 'default' },
     {
       id: 'no',
-      text: 'Закрыть ТМА',
+      text: 'Отмена',
       type: 'default',
     },
   ],
