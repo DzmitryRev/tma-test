@@ -1,69 +1,57 @@
-import { isTMA, init, showPopup, closeMiniApp, openLink  } from "@telegram-apps/sdk-react";
 import "./App.css";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
+import {
+  ShowPopupOptions,
+  closeMiniApp,
+  initData,
+  openLink,
+  showPopup,
+} from '@telegram-apps/sdk-react';
+
+const popupOptions: ShowPopupOptions = {
+  title: 'telegram mini app больше не поддерживается',
+  message: 'Хотите перейти в веб-версию приложения?',
+  buttons: [
+    { id: 'yes', text: 'Перейти', type: 'default' },
+    {
+      id: 'no',
+      text: 'Закрыть ТМА',
+      type: 'default',
+    },
+  ],
+};
+
+export const redirectFromTMA = async () => {
+  try {
+    if (initData && typeof window !== 'undefined') {
+      const clickedButtonId = await showPopup(popupOptions);
+
+      if (clickedButtonId === 'yes') {
+        const redirectHref = window.location.href;
+
+        openLink(redirectHref); // Ignored on IOS
+        window.open(redirectHref); // Ignored on Androind, Web, Desktop
+
+        setTimeout(() => {
+          closeMiniApp();
+        }, 1000);
+      } else if (clickedButtonId === 'no') {
+        closeMiniApp();
+      }
+    }
+  } catch {
+    console.warn('Не удалось сделать редирект в веб версию');
+  }
+};
 
 function App() {
-  const [status, setStatus] = useState("Проверка...");
-  const [inited, setInited] = useState(false);
-  const [isTMA2, setIsTMA] = useState(false);
+  useEffect(() => {
+    init();
+    redirectFromTMA();
+  }, [])
   
-  console.log(inited);
-  
-
-  const processPopup = async () => {
-    const buttonId = await showPopup({
-          message: "Хотите перейти в веб версию?",
-          buttons: [{text: "Перейти", id: "ok", type: "default"}, {text: "Закрыть", id: "cancel", type: "default"}],
-          title: "ТМА больше не работает",
-        })
-    if(buttonId === "ok") {
-      const linkUrl = 'https://tma-test-lake.vercel.app/' // should be same
-        try {
-          window.open(linkUrl);
-          openLink(linkUrl);
-          setTimeout(() => {
-            closeMiniApp()
-          }, 1000)
-        } catch (e) {
-          setStatus(`${e}`)
-        }
-    } else if(buttonId === "cancel") {
-                  closeMiniApp()
-    }
-  }
-
-  useEffect(() => {
-      if(inited ) {
-        setStatus("Редирект через openLink");
-        processPopup();
-      }
-      
-  }, [inited]);
-
-  useEffect(() => {
-    if (isTMA2) {
-      try {
-        init();
-        setInited(true);
-        setStatus("TMA инициализирован");
-      } catch (error) {
-        setStatus(`Ошибка инициализации: ${error}`);
-      }
-    }
-  }, [isTMA2]);
-
-  const checkIsTMA = async () => {
-    const isa = await isTMA('complete');
-    setIsTMA(isa);
-  };
-
-  useEffect(() => {
-    checkIsTMA();
-  }, []);
-
   return (
     <div className="App">
-      <h3 style={{color: "red"}}>{status}</h3>
     </div>
   );
 }
