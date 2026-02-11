@@ -55,7 +55,7 @@ function App() {
   
   return (
     <div className="App" style={{color: "red", minHeight: "100dvh"}}>
-      <img style={{width: "100%", height: "100%"}} src="https://loft-concept.ru/upload/resize_cache/iblock/6bc/l3qzcgfc0hwgv83lfn88ewsh0yf6c0ip/800_800_2/komplekt_novogodney_elki_s_barkhatnymi_bantami_i_krasno_zolotymi_igrushkami.jpg" alt="test" />
+      <img style={{width: "100%", height: "100dvh"}} src="https://i.postimg.cc/y8PZ14Wy/Snimok-ekrana-2026-02-11-161800.png" alt="test" />
     </div>
   );
 }
